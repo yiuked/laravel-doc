@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'example'),
+    'env' => env('APP_ENV', 'production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -166,6 +166,8 @@ return [
     | This array of class aliases will be registered when this application
     | is started. However, feel free to register as many as you wish as
     | the aliases are "lazy" loaded so they don't hinder performance.
+    | 引导启动时，执行 RegisterFacades 内会对 aliases 数组里的键值通过 spl_autoload_register 函数来调用 class_alias 进行
+    | 自动别名绑定。
     |
     */
 
