@@ -1,11 +1,14 @@
 <?php
 
-Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
-    Route::auth();
+Route::auth();
+Route::group(['prefix' => 'user', 'middleware' => ['web', 'auth']], function () {
+    Route::get('/', function() {
+        return 'Hello user!';
+    });
 });
 
 Route::group(['middleware' => 'web'], function () {
-    return 'Hello world!';
-    //echo $this->app->instance('path.storage');
-    //Route::get('/', 'HomeController@index');
+    Route::get('/', function() {
+        return 'Hello world!';
+    });
 });
