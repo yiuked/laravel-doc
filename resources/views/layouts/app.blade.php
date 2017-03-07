@@ -8,11 +8,10 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -71,12 +70,25 @@
             </div>
         </div>
     </nav>
-
-    @yield('content')
+    @if (Auth::guest())
+        @yield('content')
+    @else
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="list-group">
+                        <a class="list-group-item" href="{{ url('/user/users') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 用户管理</a>
+                        <a class="list-group-item" href="{{ url('/user/credit') }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 信用查询</a>
+                    </ul>
+                </div>
+                @yield('content')
+            </div>
+        </div>
+    @endif
 
     <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://lib.sinaapp.com/js/jquery/2.2.4/jquery-2.2.4.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

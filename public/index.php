@@ -53,6 +53,9 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
  */
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
+/**
+ * Illuminate\Foundation\Http\Kernel.php 中的 handle 方法
+ */
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );

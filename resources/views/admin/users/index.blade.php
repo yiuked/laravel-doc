@@ -16,16 +16,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+                    @foreach ($users as $user)
+                        <tr>
+                            <th scope="row">{{ $user->id }}</th>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $user->updated_at }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-success btn-sm">修改</button>
+                                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ url('/user/users/update',  [$user->id]) }}">修改</a></li>
+                                        <li><a href="{{ url('/user/users/delete',  [$user->id]) }}">删除</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="{{ url('/user/users/view',  [$user->id]) }}">查看</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
+                {!! $users->links() !!}
             </div>
         </div>
     </div>

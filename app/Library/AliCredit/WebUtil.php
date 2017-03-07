@@ -5,7 +5,7 @@
  * Date: 2015/9/28
  * Time: 19:25
  */
-
+namespace App\Library\AliCredit;
 class WebUtil{
 
     /**

@@ -5,6 +5,7 @@
  * Date: 2015/9/28
  * Time: 19:11
  */
+namespace App\Library\AliCredit;
 
 class RSAUtil{
 

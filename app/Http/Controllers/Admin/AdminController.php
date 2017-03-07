@@ -1,7 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2017/2/27
- * Time: 15:51
- */
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Gate;
+
+class AdminController extends Controller
+{
+    public function __construct()
+    {
+
+    }
+}
